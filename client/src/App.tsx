@@ -1,7 +1,11 @@
+import TodoApp from "./components/TodoApp";
+
 function App() {
   return (
     <>
-      <div className="text-red-600 font-bold">HI</div>
+      <div>
+        <TodoApp />
+      </div>
     </>
   );
 }
