@@ -1,8 +1,11 @@
 import Task from "./Task";
+import { TodoItem } from "./TodoApp";
 
-export default function TodoList(props: any) {
-  const todos = props.todos;
+interface TodoListProps {
+  todos: Array<TodoItem>;
+}
 
+export default function TodoList({ todos }: TodoListProps) {
   return (
     <>
       {todos.map((todo) => {
