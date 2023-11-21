@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import InputBox from "./InputBox";
 import TodoList from "./TodoList";
 import axios from "axios";
+import { editDeleteContext } from "../context/editDeleteContext";
 
 export const url = "http://localhost:3333/todo";
 
@@ -43,7 +44,9 @@ export default function TodoApp() {
         <div className="w-96">
           <h1 className="font-extrabold text-3xl">Todo List</h1>
           <InputBox task={task} setTask={setTask} addTodo={addTodo} />
-          <TodoList todos={todos} />
+          <editDeleteContext.Provider value={{ editTodo, deleteTodo }}>
+            <TodoList todos={todos} />
+          </editDeleteContext.Provider>
         </div>
       </div>
     </div>
