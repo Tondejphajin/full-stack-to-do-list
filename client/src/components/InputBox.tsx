@@ -1,12 +1,10 @@
-import axios from "axios";
-import { url } from "./TodoApp";
-
 interface InputBoxProps {
   task: string;
   setTask: (input: string) => void;
+  addTodo: () => Promise<void>;
 }
 
-export default function InputBox({ task, setTask }: InputBoxProps) {
+export default function InputBox({ task, setTask, addTodo }: InputBoxProps) {
   return (
     <div>
       <form
@@ -14,9 +12,7 @@ export default function InputBox({ task, setTask }: InputBoxProps) {
         onSubmit={async (e) => {
           e.preventDefault();
           setTask("");
-          axios.post(url, {
-            name: task,
-          });
+          addTodo();
         }}
       >
         <input
