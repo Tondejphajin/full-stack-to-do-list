@@ -30,7 +30,6 @@ export default function TodoApp() {
       name: task,
     });
 
-    console.log(res.data.name);
     setTodos([...todos, res.data]);
   };
 
