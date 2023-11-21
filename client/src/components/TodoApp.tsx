@@ -25,12 +25,25 @@ export default function TodoApp() {
     fetchData();
   }, []);
 
+  const addTodo = async () => {
+    const res = await axios.post(url, {
+      name: task,
+    });
+
+    console.log(res.data.name);
+    setTodos([...todos, res.data]);
+  };
+
+  const editTodo = async () => {};
+
+  const deleteTodo = async () => {};
+
   return (
     <div className="flex justify-center bg-[#2a2d2f] max-w-md rounded-lg mt-24 py-5 mx-auto">
       <div className="flex">
         <div className="w-96">
           <h1 className="font-extrabold text-3xl">Todo List</h1>
-          <InputBox task={task} setTask={setTask} />
+          <InputBox task={task} setTask={setTask} addTodo={addTodo} />
           <TodoList todos={todos} />
         </div>
       </div>
